@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.btn_Sair = new System.Windows.Forms.Button();
             this.btn_Entrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +42,7 @@
             this.btn_Sair.Location = new System.Drawing.Point(78, 228);
             this.btn_Sair.Name = "btn_Sair";
             this.btn_Sair.Size = new System.Drawing.Size(82, 27);
-            this.btn_Sair.TabIndex = 0;
+            this.btn_Sair.TabIndex = 4;
             this.btn_Sair.Text = "Sair";
             this.btn_Sair.Click += new System.EventHandler(this.btn_Sair_Click);
             // 
@@ -52,7 +51,7 @@
             this.btn_Entrar.Location = new System.Drawing.Point(78, 195);
             this.btn_Entrar.Name = "btn_Entrar";
             this.btn_Entrar.Size = new System.Drawing.Size(82, 27);
-            this.btn_Entrar.TabIndex = 1;
+            this.btn_Entrar.TabIndex = 3;
             this.btn_Entrar.Text = "Entrar";
             this.btn_Entrar.Click += new System.EventHandler(this.btn_Entrar_Click);
             // 
@@ -75,7 +74,7 @@
             this.txt_Usuario.Location = new System.Drawing.Point(79, 126);
             this.txt_Usuario.Name = "txt_Usuario";
             this.txt_Usuario.Size = new System.Drawing.Size(128, 23);
-            this.txt_Usuario.TabIndex = 4;
+            this.txt_Usuario.TabIndex = 1;
             // 
             // txt_Senha
             // 
@@ -83,12 +82,11 @@
             this.txt_Senha.Name = "txt_Senha";
             this.txt_Senha.PasswordChar = '*';
             this.txt_Senha.Size = new System.Drawing.Size(128, 23);
-            this.txt_Senha.TabIndex = 5;
+            this.txt_Senha.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            //this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(238, 120);

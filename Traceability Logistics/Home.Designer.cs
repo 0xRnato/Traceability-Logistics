@@ -64,7 +64,7 @@
             this.btn_Iniciar.Location = new System.Drawing.Point(26, 165);
             this.btn_Iniciar.Name = "btn_Iniciar";
             this.btn_Iniciar.Size = new System.Drawing.Size(185, 30);
-            this.btn_Iniciar.TabIndex = 5;
+            this.btn_Iniciar.TabIndex = 1;
             this.btn_Iniciar.Text = "Iniciar Novo Carregamento";
             this.btn_Iniciar.Click += new System.EventHandler(this.btn_Iniciar_Click);
             // 
@@ -80,7 +80,7 @@
             this.btn_Continuar.Location = new System.Drawing.Point(26, 201);
             this.btn_Continuar.Name = "btn_Continuar";
             this.btn_Continuar.Size = new System.Drawing.Size(185, 30);
-            this.btn_Continuar.TabIndex = 7;
+            this.btn_Continuar.TabIndex = 2;
             this.btn_Continuar.Text = "Continuar Carregamento";
             this.btn_Continuar.Click += new System.EventHandler(this.btn_Continuar_Click);
             // 

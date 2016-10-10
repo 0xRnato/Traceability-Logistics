@@ -13,10 +13,12 @@ namespace Traceability_Logistics
     public partial class Leitura : Form
     {
         StreamWriter swFile;
+        string tipo;
 
         public Leitura()
         {
             InitializeComponent();
+            tipo = "";
         }
 
         private void menuItem2_Click(object sender, EventArgs e)
@@ -91,10 +93,17 @@ namespace Traceability_Logistics
                     throw new Exception("O código 3 está incorreto.");
                 }
 
+                if (txt_Cod1.Text.StartsWith("01"))
+                    tipo = "caixa";
+                else if (txt_Cod1.Text.StartsWith("02"))
+                    tipo = "palete";
+                else
+                    throw new Exception("Tipo de item não identificado.");
+
                 swFile = new StreamWriter(new FileStream(Global.pathCarregamento, FileMode.Append), Encoding.UTF8);
-                swFile.WriteLine(txt_Cod1.Text + ";" + txt_Cod2.Text + ";" + txt_Cod3.Text);
+                swFile.WriteLine(txt_Cod1.Text + ";" + txt_Cod2.Text + ";" + txt_Cod3.Text + ";" + tipo);
                 swFile.Close();
-                
+
                 MessageBox.Show("Item lido com sucesso.", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
                 txt_Cod1.Text = "";
                 txt_Cod2.Text = "";

@@ -37,27 +37,37 @@ namespace Traceability_Logistics
                 DialogResult result = MessageBox.Show("Quer deletar todos dados salvos e iniciar um novo carregamento?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 if (result == DialogResult.Yes)
                 {
-                    if (File.Exists(Global.pathCarregamento))
-                        File.Delete(Global.pathCarregamento);
+                    File.Delete(Global.pathCarregamento);
                     File.Create(Global.pathCarregamento).Close();
                     Leitura form = new Leitura();
                     form.statusBar1.Text = statusBar1.Text;
                     this.Close();
-                    form.ShowDialog();
+                    form.Show();
                 }
             }
             else
-            { 
-                File.Create(Global.pathCarregamento);
+            {
+                File.Create(Global.pathCarregamento).Close();
+                Leitura form = new Leitura();
+                form.statusBar1.Text = statusBar1.Text;
+                this.Close();
+                form.Show();
             }
         }
 
         private void btn_Continuar_Click(object sender, EventArgs e)
         {
-            Leitura form = new Leitura();
-            form.statusBar1.Text = statusBar1.Text;
-            this.Close();
-            form.ShowDialog();
+            if (File.Exists(Global.pathCarregamento))
+            {
+                Leitura form = new Leitura();
+                form.statusBar1.Text = statusBar1.Text;
+                this.Close();
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Não há nenhum carregamento em andamento neste aparelho, inicie um novo carregamento.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+            }
         }
     }
 }

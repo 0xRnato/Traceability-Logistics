@@ -42,9 +42,9 @@ namespace Traceability_Logistics
                 if (txt_Senha.Text != senha)
                     throw new Exception("Senha incorreta.");
 
-                Hide();
                 Home form = new Home();
                 form.statusBar1.Text += usuario;
+                Hide();
                 form.ShowDialog();
             }
             catch (Exception ex)
@@ -72,9 +72,11 @@ namespace Traceability_Logistics
             else
             {
                 MessageBox.Show("Não existe nenhuma senha cadastrada nete aparelho, contate o administrador do sistema para sincronizar a sua senha.", "Erro!!!", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
-                btn_Entrar.Enabled = false;
-                txt_Usuario.Enabled = false;
-                txt_Senha.Enabled = false;
+                Application.Exit();
+
+                //btn_Entrar.Enabled = false;
+                //txt_Usuario.Enabled = false;
+                //txt_Senha.Enabled = false;
 
                 //File.Create(pathUser).Close();
                 //StreamWriter swFile = new StreamWriter(new FileStream(pathUser, FileMode.Append), Encoding.UTF8);
