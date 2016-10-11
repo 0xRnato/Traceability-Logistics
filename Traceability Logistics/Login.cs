@@ -42,6 +42,7 @@ namespace Traceability_Logistics
                 if (txt_Senha.Text != senha)
                     throw new Exception("Senha incorreta.");
 
+                Global.user = usuario;
                 Home form = new Home();
                 form.statusBar1.Text += usuario;
                 Hide();
@@ -89,5 +90,6 @@ namespace Traceability_Logistics
     class Global
     {
         public static string pathCarregamento;
+        public static string user;
     }
 }

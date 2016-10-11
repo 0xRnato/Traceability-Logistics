@@ -43,9 +43,6 @@ namespace Traceability_Logistics
             DialogResult result = MessageBox.Show("Deseja mesmo finalizar o carregamento?", "Atenção!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.OK)
             {
-                writer = new StreamWriter(new FileStream(Global.pathCarregamento, FileMode.Append), Encoding.UTF8);
-                writer.Write("END");
-                writer.Close();
                 Application.Exit();
             }
         }

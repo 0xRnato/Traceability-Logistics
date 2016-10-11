@@ -101,7 +101,7 @@ namespace Traceability_Logistics
                     throw new Exception("Tipo de item não identificado.");
 
                 swFile = new StreamWriter(new FileStream(Global.pathCarregamento, FileMode.Append), Encoding.UTF8);
-                swFile.WriteLine(txt_Cod1.Text + ";" + txt_Cod2.Text + ";" + txt_Cod3.Text + ";" + tipo);
+                swFile.WriteLine(txt_Cod1.Text + ";" + txt_Cod2.Text + ";" + txt_Cod3.Text + ";" + tipo + ";" + Global.user + ";" + DateTime.Today.ToString("dd/MM/yy"));
                 swFile.Close();
 
                 MessageBox.Show("Item lido com sucesso.", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
