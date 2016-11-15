@@ -30,16 +30,17 @@ namespace Traceability_Logistics
 
         private void txt_Cod1_TextChanged(object sender, EventArgs e)
         {
-            if (txt_Cod1.Text.Length == 32)
+            if (txt_Cod1.Text.Length == 32 || txt_Cod1.Text.Length == 35 || txt_Cod1.Text.Length == 36 || txt_Cod1.Text.Length == 37)
             {
                 txt_Cod2.Focus();
                 txt_Cod1.Enabled = false;
             }
+            
         }
 
         private void txt_Cod2_TextChanged(object sender, EventArgs e)
         {
-            if (txt_Cod2.Text.Length == 15)
+            if (txt_Cod2.Text.Length == 17)
             {
                 txt_Cod3.Focus();
                 txt_Cod2.Enabled = false;
@@ -71,21 +72,42 @@ namespace Traceability_Logistics
         {
             try
             {
-                if (txt_Cod1.Text.Length != 32)
+                if (txt_Cod1.Text.StartsWith("01"))
+                {
+                    if (txt_Cod1.Text.Length != 32)
+                    {
+                        txt_Cod1.Text = "";
+                        txt_Cod1.Enabled = true;
+                        txt_Cod1.Focus();
+                        throw new Exception("O código 1 está incorreto.");
+                    }
+                }
+                else if (txt_Cod1.Text.StartsWith("02"))
+                {
+                    if (!txt_Cod1.Text.StartsWith("02") && txt_Cod1.Text.Length != 35 && txt_Cod1.Text.Length != 36 && txt_Cod1.Text.Length != 37)
+                    {
+                        txt_Cod1.Text = "";
+                        txt_Cod1.Enabled = true;
+                        txt_Cod1.Focus();
+                        throw new Exception("O código 1 está incorreto.");
+                    }
+                }
+                else
                 {
                     txt_Cod1.Text = "";
                     txt_Cod1.Enabled = true;
                     txt_Cod1.Focus();
                     throw new Exception("O código 1 está incorreto.");
                 }
-                if (txt_Cod2.Text.Length != 15)
+
+                if (txt_Cod2.Text.Length != 17 && txt_Cod2.Text.StartsWith("7030"))
                 {
                     txt_Cod2.Text = "";
                     txt_Cod2.Enabled = true;
                     txt_Cod2.Focus();
                     throw new Exception("O código 2 está incorreto.");
                 }
-                if (txt_Cod3.Text.Length != 19)
+                if (txt_Cod3.Text.Length != 19 && txt_Cod3.Text.StartsWith("00"))
                 {
                     txt_Cod3.Text = "";
                     txt_Cod3.Enabled = true;
@@ -101,7 +123,7 @@ namespace Traceability_Logistics
                     throw new Exception("Tipo de item não identificado.");
 
                 swFile = new StreamWriter(new FileStream(Global.pathCarregamento, FileMode.Append), Encoding.UTF8);
-                swFile.WriteLine(txt_Cod1.Text + ";" + txt_Cod2.Text + ";" + txt_Cod3.Text + ";" + tipo + ";" + Global.user + ";" + DateTime.Today.ToString("dd/MM/yy"));
+                swFile.WriteLine(txt_Cod1.Text + ";" + txt_Cod2.Text + ";" + txt_Cod3.Text + ";" + tipo + ";" + Global.user + ";" + DateTime.Today.ToString("dd/MM/yyyy"));
                 swFile.Close();
 
                 MessageBox.Show("Item lido com sucesso.", "Concluído", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);

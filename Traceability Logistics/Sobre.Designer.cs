@@ -67,7 +67,7 @@
             this.label1.Location = new System.Drawing.Point(22, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 23);
-            this.label1.Text = "Traceability Logistics v1.5";
+            this.label1.Text = "Traceability Logistics v1.0";
             // 
             // btn_Voltar
             // 
